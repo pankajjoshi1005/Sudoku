@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Sudoku</h1>
+
+<div id="menu">
+  <button onclick="startGame('easy')">Easy</button>
+  <button onclick="startGame('medium')">Medium</button>
+  <button onclick="startGame('hard')">Hard</button>
+</div>
+
+<div id="top-bar" class="hidden">
+  <span id="timer">00:00:00</span>
+  <span id="lives">❤️❤️❤️</span>
+  <button onclick="resetGame()">Refresh</button>
+</div>
+
+<div id="sudoku"></div>
+
+<div id="message"></div>
+
+<audio id="alarm">
+  <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
