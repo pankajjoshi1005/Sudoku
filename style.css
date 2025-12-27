@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+#sudoku {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    width: 360px;
+    margin: 20px auto;
+}
+
+input {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #999;
+}
+
+input:disabled {
+    background: #e0e0e0;
+    font-weight: bold;
+}
+
+.invalid {
+    background-color: #ffb3b3;
+}
+
+.controls button {
+    padding: 8px 15px;
+    margin: 5px;
+}
