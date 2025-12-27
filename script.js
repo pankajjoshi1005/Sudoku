@@ -29,9 +29,14 @@ function startGame(level) {
 
 function resetGame() {
   clearInterval(timerInterval);
+  gameOver = false;
+
   document.getElementById("menu").classList.remove("hidden");
   document.getElementById("top-bar").classList.add("hidden");
+
   document.getElementById("sudoku").innerHTML = "";
+  document.getElementById("sudoku").classList.remove("hide-board");
+
   document.getElementById("timer").innerText = "00:00:00";
   document.getElementById("message").innerText = "";
 }
@@ -43,6 +48,9 @@ function renderBoard(board) {
   board.forEach((row, r) => {
     row.forEach((value, c) => {
       const input = document.createElement("input");
+      input.type = "text";
+      input.inputMode = "numeric";     // 📱 Android + iOS
+      input.pattern = "[0-9]*";        // 🍎 iOS Safari
       input.className = "cell";
       input.maxLength = 1;
 
@@ -87,11 +95,15 @@ function wrongAttempt() {
   if (lives === 0) {
     gameOver = true;
     clearInterval(timerInterval);
+
+    // 🔥 HIDE SUDOKU BOARD
+    document.getElementById("sudoku").classList.add("hide-board");
+
+    // 📢 SHOW LOSS MESSAGE
     document.getElementById("message").innerText =
       `❌ You Lost!\nYou failed ${currentLevel.toUpperCase()} level.\nTry again.`;
   }
 }
-
 function updateLives() {
   document.getElementById("lives").innerText = "❤️".repeat(lives);
 }
